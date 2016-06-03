@@ -1,0 +1,1 @@
+virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' list --all

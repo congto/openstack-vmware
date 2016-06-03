@@ -3,9 +3,13 @@
 
 ### Các bước cài đặt virsh-v2v
 - Mô hình
-
 ```sh
-update mô hình
+update mô hình vào đây ....
+```
+
+- Môi trường cài đặt
+```sh
+update môi trường cài đặt vào đây ....
 ```
 
 - Khai báo file .netnc
@@ -18,6 +22,13 @@ machine IP_ESXi login root password mat_khau
 chmod 600 .netnc
 ```
 
+- Cài đặt virt-v2v
+```sh
+...các lệnh cài đặt
+```
+
+- 
+
 - Kết nối tới ESX để kéo máy ảo về
 ```sh
 virt-v2v -ic esx://172.17.77.150/?no_verify=1 -o libvirt -os congvirtimages Cong-u1401_clone
@@ -29,11 +40,18 @@ virt-v2v -ic esx://172.17.77.150/?no_verify=1 -o libvirt -os congvirtimages Cong
 
 virsh -c esx://172.17.77.150/?no_verify=1 list --all
 
-http://prntscr.com/bbpjw1
+# Tham khảo http://prntscr.com/bbpjw1
+
+# Kết nối tới VCENTER
+
+virsh -c 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no_verify=1' list --all
+
+# Tham khảo: http://prntscr.com/bbpro7
+
+# Nếu user của VCENTER có dạng `administrator@vsphere.local` thì phải sử dụng %40 vì 40 là mã ASCII của @. If the username contains a backslash (eg. DOMAIN\USER) then you will need to URI-escape that character using %5c: DOMAIN%5cUSER (5c is the hexadecimal ASCII code for backslash.) Other punctuation may also have to be escaped. Tham khảo :  http://prntscr.com/bbpv0a
 
 # ?no_verify=1 : tùy chọn giúp không cần xác nhận SSL khi login vào ESX
 ```
-
 
 ## Các ghi chép khác
 
