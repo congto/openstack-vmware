@@ -1,1 +1,49 @@
-virsh -c 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' list --all
+virsh -c 'vpx://administrator@172.17.77.149/MDT/172.17.77.150?no_verify=1' list --all
+
+virsh -c 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no_verify=1' list --all
+virsh -c 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no_verify=1' dumpxml "cong-centos65"
+
+
+virt-v2v  -ic 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no_verify=1' \
+    "Windows 2003" \
+     -o local -os /var/tmp
+
+
+administrator%40vsphere.local
+
+MDT@!2o016
+
+virt-v2v -ic 'vpx://root@vcenter.example.com/Datacenter/esxi?no_verify=1' \
+   "Windows 2003" \
+   -o local -os /var/tmp
+   
+virt-v2v-copy-to-local -ic esx://172.17.77.150/?no_verify=1 Cong-u1401_clone
+
+
+virt-v2v -ic esx://172.17.77.150/?no_verify=1 -o libvirt -os congvirtimages Cong-u1401_clone
+
+
+virt-v2v -ic 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no_verify=1' cong-centos65
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
