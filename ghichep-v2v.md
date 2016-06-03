@@ -24,10 +24,33 @@ chmod 600 .netnc
 
 - Cài đặt virt-v2v
 ```sh
-...các lệnh cài đặt
+yum -y install qemu-kvm libvirt python-virtinst bridge-utils
+
+yum install virt-v2v
 ```
 
-- 
+- Tạo pool cho KVM
+
+
+```sh
+- Tạo file pool.xml
+
+<pool type="dir">
+        <name>virtimages</name>
+        <target>
+          <path>/home/images</path>
+        </target>
+</pool>
+
+- Sử dụng lệnh virsh tạo pool
+
+virsh pool-create --file pool.xml
+
+- Kiểm tra pool vừa tạo
+
+virsh pool-list
+
+```
 
 - Kết nối tới ESX để kéo máy ảo về
 ```sh
@@ -55,3 +78,10 @@ virsh -c 'vpx://administrator%40vsphere.local@172.17.77.149/MDT/172.17.77.150?no
 
 ## Các ghi chép khác
 
+
+
+## Tham khảo
+```sh
+1. http://yazpik.github.io/blog/2014/12/15/virtual-machine-migration-from-vmware-to-openstack/
+2. ..
+```
